@@ -75,7 +75,7 @@ namespace UnitConverter.App.Pages
 
             if (!_entry.TryGetValue(out double value))
             {
-                await DisplayAlert("Nothing to convert", "Type a value before converting.", "OK");
+                await DisplayAlert("Rien à convertir", "Saisissez une valeur avant de convertir.", "OK");
                 return;
             }
 

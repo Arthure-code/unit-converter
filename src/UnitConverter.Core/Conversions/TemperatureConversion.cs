@@ -21,10 +21,10 @@ namespace UnitConverter.Core.Conversions
         }
 
         public static TemperatureConversion CelsiusToFahrenheit(string key)
-            => new TemperatureConversion(key, "degree Celsius", "degree Fahrenheit", true);
+            => new TemperatureConversion(key, "degré Celsius", "degré Fahrenheit", true);
 
         public static TemperatureConversion FahrenheitToCelsius(string key)
-            => new TemperatureConversion(key, "degree Fahrenheit", "degree Celsius", false);
+            => new TemperatureConversion(key, "degré Fahrenheit", "degré Celsius", false);
 
         public string Key { get; }
 

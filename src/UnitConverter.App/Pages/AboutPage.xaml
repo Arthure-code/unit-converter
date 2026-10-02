@@ -2,7 +2,7 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="UnitConverter.App.Pages.AboutPage"
-             Title="About">
+             Title="À propos">
 
     <!--
     Why a VerticalStackLayout: three labels, one under the other, centred on
@@ -14,11 +14,11 @@
                          HorizontalOptions="Center"
                          Spacing="15">
 
-        <Label Text="Unit Converter"
+        <Label Text="Convertisseur d'unités"
                Style="{StaticResource PageTitle}"
                HorizontalOptions="Center" />
 
-        <Label Text="Built by Arthure Lekoubou Djune"
+        <Label Text="Développée par : Arthure Lekoubou Djune"
                Style="{StaticResource SmallInfo}"
                HorizontalOptions="Center" />
 

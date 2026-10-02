@@ -1,29 +1,41 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <!-- Windows is the platform this application is built, run and shown
-         on. The other MAUI targets are not declared rather than declared
-         and never tried. -->
-    <TargetFramework>net8.0-windows10.0.19041.0</TargetFramework>
+    <!-- Android and Windows are the two platforms this application is built
+         and run on. iOS and Mac Catalyst need a Mac to build, so they are
+         not declared rather than declared and never tried. -->
+    <TargetFrameworks>net9.0-android35.0</TargetFrameworks>
+    <TargetFrameworks Condition="$([MSBuild]::IsOSPlatform('windows'))">$(TargetFrameworks);net9.0-windows10.0.19041.0</TargetFrameworks>
 
     <OutputType>Exe</OutputType>
     <RootNamespace>UnitConverter.App</RootNamespace>
     <UseMaui>true</UseMaui>
-    <!-- The SDK on the build machine defaults to the .NET 10 workload band,
-         so the .NET 8 MAUI version is named here rather than inherited. -->
-    <MauiVersion>8.0.100</MauiVersion>
     <SingleProject>true</SingleProject>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
 
-    <ApplicationTitle>Unit Converter</ApplicationTitle>
+    <ApplicationTitle>Convertisseur d'unités</ApplicationTitle>
     <ApplicationId>com.arthurecode.unitconverter</ApplicationId>
 
     <ApplicationDisplayVersion>1.0</ApplicationDisplayVersion>
     <ApplicationVersion>1</ApplicationVersion>
 
+    <SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'android'">21.0</SupportedOSPlatformVersion>
     <SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'windows'">10.0.17763.0</SupportedOSPlatformVersion>
     <TargetPlatformMinVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'windows'">10.0.17763.0</TargetPlatformMinVersion>
+  </PropertyGroup>
+
+  <!-- Unpackaged, and carrying its own Windows App SDK: on Windows the
+       application starts with dotnet run on a clean machine, without MSIX
+       signing or developer mode. -->
+  <PropertyGroup Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'windows'">
+    <WindowsPackageType>None</WindowsPackageType>
+    <WindowsAppSDKSelfContained>true</WindowsAppSDKSelfContained>
+    <SelfContained>false</SelfContained>
+    <RuntimeIdentifier>win-x64</RuntimeIdentifier>
+    <!-- English and French only: the Windows App SDK otherwise copies its
+         messages in every language it ships, which is most of the output. -->
+    <SatelliteResourceLanguages>en;fr</SatelliteResourceLanguages>
   </PropertyGroup>
 
   <ItemGroup>

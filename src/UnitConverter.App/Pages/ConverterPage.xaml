@@ -1,21 +1,23 @@
-<?xml version="1.0" encoding="utf-8" ?>
+﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     x:Class="UnitConverter.App.Pages.ConverterPage"
-    Title="Converter">
+    Title="Convertisseur">
 
     <!--
-    Why a Grid: the page holds four bands of different heights, the readout,
-    the clear keys, the conversions and the keypad. The first three take the
-    height they need and the keypad takes what is left, which is one
-    RowDefinitions line here and would be nested stacks otherwise.
+    Why a Grid inside a ScrollView: the page holds four bands, the readout,
+    the clear keys, the conversions and the keypad. Each band takes the
+    height it needs, which is one RowDefinitions line here and would be
+    nested stacks otherwise, and the ScrollView carries what does not fit
+    on a short window or a small phone rather than squashing the keys.
     -->
 
+    <ScrollView>
     <Grid
         Padding="10"
         RowSpacing="15"
-        RowDefinitions="Auto,Auto,Auto,*">
+        RowDefinitions="Auto,Auto,Auto,Auto">
 
         <Grid
             Grid.Row="0"
@@ -56,7 +58,7 @@
 
             <Button
                 Grid.Column="0"
-                Text="CLEAR"
+                Text="EFFACER"
                 Style="{StaticResource ClearButton}"
                 Clicked="Clear_Clicked" />
 
@@ -64,7 +66,7 @@
                 x:Name="BackspaceKey"
                 Grid.Column="1"
                 Text="&#x232B;"
-                AutomationProperties.Name="Erase the last key"
+                AutomationProperties.Name="Effacer la dernière touche"
                 Style="{StaticResource ClearButton}"
                 Clicked="Backspace_Clicked" />
         </Grid>
@@ -77,51 +79,51 @@
             ColumnDefinitions="*,*,*,*"
             RowDefinitions="Auto,Auto,Auto">
 
-            <Button Text="CM TO IN" CommandParameter="cm-to-in"
+            <Button Text="CM À POUCE" CommandParameter="cm-to-in"
                     Grid.Row="0" Grid.Column="0"
                     Style="{StaticResource ConversionButton}" Clicked="Convert_Clicked" />
 
-            <Button Text="IN TO CM" CommandParameter="in-to-cm"
+            <Button Text="POUCE À CM" CommandParameter="in-to-cm"
                     Grid.Row="0" Grid.Column="1"
                     Style="{StaticResource ConversionButton}" Clicked="Convert_Clicked" />
 
-            <Button Text="M TO FT" CommandParameter="m-to-ft"
+            <Button Text="M À PIED" CommandParameter="m-to-ft"
                     Grid.Row="0" Grid.Column="2"
                     Style="{StaticResource ConversionButton}" Clicked="Convert_Clicked" />
 
-            <Button Text="FT TO M" CommandParameter="ft-to-m"
+            <Button Text="PIED À M" CommandParameter="ft-to-m"
                     Grid.Row="0" Grid.Column="3"
                     Style="{StaticResource ConversionButton}" Clicked="Convert_Clicked" />
 
-            <Button Text="G TO OZ" CommandParameter="g-to-oz"
+            <Button Text="G À ONCE" CommandParameter="g-to-oz"
                     Grid.Row="1" Grid.Column="0"
                     Style="{StaticResource ConversionButton}" Clicked="Convert_Clicked" />
 
-            <Button Text="OZ TO G" CommandParameter="oz-to-g"
+            <Button Text="ONCE À G" CommandParameter="oz-to-g"
                     Grid.Row="1" Grid.Column="1"
                     Style="{StaticResource ConversionButton}" Clicked="Convert_Clicked" />
 
-            <Button Text="KG TO LB" CommandParameter="kg-to-lb"
+            <Button Text="KG À LB" CommandParameter="kg-to-lb"
                     Grid.Row="1" Grid.Column="2"
                     Style="{StaticResource ConversionButton}" Clicked="Convert_Clicked" />
 
-            <Button Text="LB TO KG" CommandParameter="lb-to-kg"
+            <Button Text="LB À KG" CommandParameter="lb-to-kg"
                     Grid.Row="1" Grid.Column="3"
                     Style="{StaticResource ConversionButton}" Clicked="Convert_Clicked" />
 
-            <Button Text="KM TO MI" CommandParameter="km-to-mi"
+            <Button Text="KM À MI" CommandParameter="km-to-mi"
                     Grid.Row="2" Grid.Column="0"
                     Style="{StaticResource ConversionButton}" Clicked="Convert_Clicked" />
 
-            <Button Text="MI TO KM" CommandParameter="mi-to-km"
+            <Button Text="MI À KM" CommandParameter="mi-to-km"
                     Grid.Row="2" Grid.Column="1"
                     Style="{StaticResource ConversionButton}" Clicked="Convert_Clicked" />
 
-            <Button Text="&#176;C TO &#176;F" CommandParameter="c-to-f"
+            <Button Text="&#176;C À &#176;F" CommandParameter="c-to-f"
                     Grid.Row="2" Grid.Column="2"
                     Style="{StaticResource ConversionButton}" Clicked="Convert_Clicked" />
 
-            <Button Text="&#176;F TO &#176;C" CommandParameter="f-to-c"
+            <Button Text="&#176;F À &#176;C" CommandParameter="f-to-c"
                     Grid.Row="2" Grid.Column="3"
                     Style="{StaticResource ConversionButton}" Clicked="Convert_Clicked" />
         </Grid>
@@ -132,7 +134,7 @@
             ColumnSpacing="10"
             RowSpacing="10"
             ColumnDefinitions="*,*,*"
-            RowDefinitions="*,*,*,*">
+            RowDefinitions="Auto,Auto,Auto,Auto">
 
             <Button Text="7" CommandParameter="7" Grid.Row="0" Grid.Column="0"
                     Style="{StaticResource DigitButton}" Clicked="Digit_Clicked" />
@@ -162,16 +164,17 @@
                     Style="{StaticResource DigitButton}" Clicked="Digit_Clicked" />
 
             <Button Text="." Grid.Row="3" Grid.Column="0"
-                    AutomationProperties.Name="Decimal point"
+                    AutomationProperties.Name="Virgule décimale"
                     Style="{StaticResource DigitButton}" Clicked="DecimalPoint_Clicked" />
 
             <Button Text="0" CommandParameter="0" Grid.Row="3" Grid.Column="1"
                     Style="{StaticResource DigitButton}" Clicked="Digit_Clicked" />
 
             <Button Text="&#177;" Grid.Row="3" Grid.Column="2"
-                    AutomationProperties.Name="Change the sign"
+                    AutomationProperties.Name="Changer le signe"
                     Style="{StaticResource DigitButton}" Clicked="Sign_Clicked" />
         </Grid>
 
     </Grid>
+    </ScrollView>
 </ContentPage>

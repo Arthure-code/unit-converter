@@ -16,19 +16,19 @@ namespace UnitConverter.Core.Conversions
         private const double KilometresPerMile = 1.609344;
 
         private static readonly LinearConversion InchToCentimetre =
-            new LinearConversion("in-to-cm", "inch", "centimetre", CentimetresPerInch);
+            new LinearConversion("in-to-cm", "pouce", "centimètre", CentimetresPerInch);
 
         private static readonly LinearConversion FootToMetre =
-            new LinearConversion("ft-to-m", "foot", "metre", MetresPerFoot);
+            new LinearConversion("ft-to-m", "pied", "mètre", MetresPerFoot);
 
         private static readonly LinearConversion OunceToGram =
-            new LinearConversion("oz-to-g", "ounce", "gram", GramsPerOunce);
+            new LinearConversion("oz-to-g", "once", "gramme", GramsPerOunce);
 
         private static readonly LinearConversion PoundToKilogram =
-            new LinearConversion("lb-to-kg", "pound", "kilogram", KilogramsPerPound);
+            new LinearConversion("lb-to-kg", "livre", "kilogramme", KilogramsPerPound);
 
         private static readonly LinearConversion MileToKilometre =
-            new LinearConversion("mi-to-km", "mile", "kilometre", KilometresPerMile);
+            new LinearConversion("mi-to-km", "mile", "kilomètre", KilometresPerMile);
 
         private static readonly IUnitConversion[] Conversions =
         {

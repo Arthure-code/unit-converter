@@ -25,18 +25,18 @@ namespace UnitConverter.Core.Tests
         }
 
         [Theory]
-        [InlineData("cm-to-in", "centimetre", "inch")]
-        [InlineData("in-to-cm", "inch", "centimetre")]
-        [InlineData("m-to-ft", "metre", "foot")]
-        [InlineData("ft-to-m", "foot", "metre")]
-        [InlineData("g-to-oz", "gram", "ounce")]
-        [InlineData("oz-to-g", "ounce", "gram")]
-        [InlineData("kg-to-lb", "kilogram", "pound")]
-        [InlineData("lb-to-kg", "pound", "kilogram")]
-        [InlineData("km-to-mi", "kilometre", "mile")]
-        [InlineData("mi-to-km", "mile", "kilometre")]
-        [InlineData("c-to-f", "degree Celsius", "degree Fahrenheit")]
-        [InlineData("f-to-c", "degree Fahrenheit", "degree Celsius")]
+        [InlineData("cm-to-in", "centimètre", "pouce")]
+        [InlineData("in-to-cm", "pouce", "centimètre")]
+        [InlineData("m-to-ft", "mètre", "pied")]
+        [InlineData("ft-to-m", "pied", "mètre")]
+        [InlineData("g-to-oz", "gramme", "once")]
+        [InlineData("oz-to-g", "once", "gramme")]
+        [InlineData("kg-to-lb", "kilogramme", "livre")]
+        [InlineData("lb-to-kg", "livre", "kilogramme")]
+        [InlineData("km-to-mi", "kilomètre", "mile")]
+        [InlineData("mi-to-km", "mile", "kilomètre")]
+        [InlineData("c-to-f", "degré Celsius", "degré Fahrenheit")]
+        [InlineData("f-to-c", "degré Fahrenheit", "degré Celsius")]
         public void EachButtonFindsItsConversion(string key, string from, string to)
         {
             //Given the name a button carries

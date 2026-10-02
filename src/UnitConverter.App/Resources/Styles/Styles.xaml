@@ -31,8 +31,7 @@
         <Setter Property="FontSize" Value="24"/>
         <Setter Property="FontAttributes" Value="Bold"/>
         <Setter Property="CornerRadius" Value="10"/>
-        <Setter Property="HeightRequest" Value="50"/>
-        <Setter Property="WidthRequest" Value="100"/>
+        <Setter Property="HeightRequest" Value="56"/>
     </Style>
 
     <Style TargetType="Button" x:Key="ConversionButton">

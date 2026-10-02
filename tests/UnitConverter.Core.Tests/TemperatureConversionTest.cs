@@ -50,8 +50,8 @@ namespace UnitConverter.Core.Tests
 
             //Then
             Assert.Equal("c-to-f", conversion.Key);
-            Assert.Equal("degree Celsius", conversion.From);
-            Assert.Equal("degree Fahrenheit", conversion.To);
+            Assert.Equal("degré Celsius", conversion.From);
+            Assert.Equal("degré Fahrenheit", conversion.To);
         }
 
         [Fact]
