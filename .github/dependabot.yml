@@ -1,0 +1,18 @@
+# Les montees majeures sont ignorees : le depot reste sur .NET 9, et une
+# version majeure d'un paquet demande une decision, pas une fusion
+# automatique.
+version: 2
+updates:
+  - package-ecosystem: "nuget"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+    open-pull-requests-limit: 5
+    ignore:
+      - dependency-name: "*"
+        update-types: ["version-update:semver-major"]
+
+  - package-ecosystem: "github-actions"
+    directory: "/"
+    schedule:
+      interval: "weekly"
