@@ -1,6 +1,7 @@
-<?xml version="1.0" encoding="utf-8" ?>
+﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:pages="clr-namespace:UnitConverter.App.Pages"
              x:Class="UnitConverter.App.Pages.HelpPage"
              Title="Aide">
 
@@ -24,7 +25,7 @@
 
         <CollectionView Grid.Row="2" x:Name="ConversionList">
             <CollectionView.ItemTemplate>
-                <DataTemplate>
+                <DataTemplate x:DataType="pages:HelpLine">
                     <VerticalStackLayout Padding="0,6">
                         <Label Text="{Binding Title}" Style="{StaticResource UnitHeading}" />
                         <Label Text="{Binding Description}" Style="{StaticResource ConversionLine}" />

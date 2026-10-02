@@ -12,7 +12,5 @@ namespace UnitConverter.App.Pages
                 .Select(c => new HelpLine($"{c.From} vers {c.To}", c.Describe()))
                 .ToList();
         }
-
-        private sealed record HelpLine(string Title, string Description);
     }
 }
