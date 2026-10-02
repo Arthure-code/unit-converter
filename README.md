@@ -19,6 +19,10 @@ A unit converter with a keypad of its own: type a number, press a conversion, re
 
 ![The converter page: the readout shows kilometre 42.5 above mile 26.4083, then a clear key and a backspace, the twelve conversion keys in three rows of four, and the keypad below](docs/convertisseur.png)
 
+**The same page on a phone**
+
+![The converter running on an Android phone: the same readout, kilometre 42.5 above mile 26.4083, the same twelve conversion keys in four columns, and the keypad keeping its height](docs/mobile.png)
+
 **The help**
 
 ![The help page: a sentence on how the keypad works, then one entry per conversion with its two units and its rate, 1 centimetre = 0.393701 inch, 1 inch = 2.54 centimetre, read from the catalogue rather than written by hand](docs/aide.png)
