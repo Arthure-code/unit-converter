@@ -57,7 +57,13 @@ jobs:
           $PSNativeCommandUseErrorActionPreference = $true
           # La solution porte la bibliotheque de conversion, l'application
           # MAUI et les tests : elle couvre tout le depot.
-          ${{ runner.temp }}\scanner\dotnet-sonarscanner begin /k:"Arthure-code_unit-converter" /o:"arthuredevsecops" /d:sonar.token="$env:SONAR_TOKEN" /d:sonar.cs.cobertura.reportsPaths="**/coverage.cobertura.xml"
+          # L'amorçage de MAUI, la classe Application, le Shell, MauiProgram
+          # et les points d'entree par plateforme, ne s'execute qu'avec un
+          # ecran : aucun test unitaire ne l'atteint, et le compter revient
+          # a mesurer ce qui n'est pas mesurable. Il sort de la couverture,
+          # pas de l'analyse : ses regles et ses vulnerabilites restent
+          # verifiees.
+          ${{ runner.temp }}\scanner\dotnet-sonarscanner begin /k:"Arthure-code_unit-converter" /o:"arthuredevsecops" /d:sonar.token="$env:SONAR_TOKEN" /d:sonar.cs.cobertura.reportsPaths="**/coverage.cobertura.xml" /d:sonar.coverage.exclusions="src/UnitConverter.App/App.xaml.cs,src/UnitConverter.App/AppShell.xaml.cs,src/UnitConverter.App/MauiProgram.cs,src/UnitConverter.App/Platforms/**"
           dotnet build UnitConverter.sln
           dotnet test UnitConverter.sln --no-build --collect:"XPlat Code Coverage"
           # Une dependance vulnerable arrete la chaine plutot que de
