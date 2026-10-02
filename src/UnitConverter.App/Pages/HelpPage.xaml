@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="UnitConverter.App.Pages.HelpPage"
+             Title="Help">
+
+    <!--
+    Why a CollectionView inside a ScrollView-free page: the list of
+    conversions is not written here, it is read from the catalogue, so the
+    help can never drift from what the application computes. A
+    CollectionView also scrolls on its own.
+    -->
+
+    <Grid Padding="20" RowDefinitions="Auto,Auto,*" RowSpacing="10">
+
+        <Label Grid.Row="0"
+               Text="Unit Converter"
+               Style="{StaticResource SectionTitle}"
+               HorizontalOptions="Center" />
+
+        <Label Grid.Row="1"
+               Text="Type a value on the keypad, then press a conversion. The result replaces the keypad until CLEAR. Decimals and negative values are allowed, which is what lets you convert -40 degrees."
+               Style="{StaticResource BodyText}" />
+
+        <CollectionView Grid.Row="2" x:Name="ConversionList">
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <VerticalStackLayout Padding="0,6">
+                        <Label Text="{Binding Title}" Style="{StaticResource UnitHeading}" />
+                        <Label Text="{Binding Description}" Style="{StaticResource ConversionLine}" />
+                    </VerticalStackLayout>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+
+    </Grid>
+
+</ContentPage>

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="UnitConverter.App.Pages.AboutPage"
+             Title="About">
+
+    <!--
+    Why a VerticalStackLayout: three labels, one under the other, centred on
+    the page. VerticalOptions and HorizontalOptions set to Center place them
+    without a single margin.
+    -->
+
+    <VerticalStackLayout VerticalOptions="Center"
+                         HorizontalOptions="Center"
+                         Spacing="15">
+
+        <Label Text="Unit Converter"
+               Style="{StaticResource PageTitle}"
+               HorizontalOptions="Center" />
+
+        <Label Text="Built by Arthure Lekoubou Djune"
+               Style="{StaticResource SmallInfo}"
+               HorizontalOptions="Center" />
+
+        <Label Text="Version 1.0"
+               Style="{StaticResource SmallInfo}"
+               HorizontalOptions="Center" />
+
+    </VerticalStackLayout>
+
+</ContentPage>
